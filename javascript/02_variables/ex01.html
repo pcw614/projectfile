@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>변수 연습</h1>
+    <div id="mycar"></div>
+    <script>
+        //변수 a를 선언
+        let a;
+        //변수 a에 7을 넣어 초기화
+        a = 7;
+        let b = 9;
+        //변수 c를 선언하고 변수 a 의 값과 변수 b 의 값을 더한 값으로 초기화
+        let c = a + b;
+        //변수 c의 값을 c = 16형태로 콘솔에 출력
+        console.log("c:" + c)
+        //변수 car에 갖고 싶은 차 이름을 저장하시오
+        let car = "volvo";
+        //변수 owner에 자기 이름을 저장하시오
+        let owner = "박철우";
+        //콘솔창에 car = owner 형태로 출력
+        console.log(owner + " : " + car);
+        //<p>태그로 "<p>"+owner+""의 차는" +car+"입니다"</p> 
+        document.write("<p>"+ owner +"의 차는" + car +"입니다</p>");
+        document.getElementById("mycar").innerHTML= owner +"의 차는" + car +"입니다";
+    </script>
+</body>
+</html>

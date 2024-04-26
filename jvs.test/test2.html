@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animating Background Color</title>
+    <style>
+        #container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: #f0f0f0;
+        }
+
+        #box1 {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+        }
+
+        #box2 {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            position: absolute;
+            left: 175px;
+            top: 175px;
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px;
+            width: 197px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="box1"></div>
+        <div id="box2"></div>
+    </div>
+    <button onclick="move()" id="move">move</button>
+    <button onclick="stop()" id="stop">stop</button>
+
+    <script>
+        const container = document.getElementById("container");
+        const animatedElement = document.getElementById("box1");
+        let move_btn = document.getElementById("move");
+
+        let position = 0;
+        let next;
+        function move() {
+            move_btn.disabled = true;
+            position = 0;
+            next = setInterval(right, 10);
+
+            
+        }
+
+        function right() {
+                if (position === 350) {
+                    clearInterval(interval);
+                    next = setInterval(down, 10);
+                } else {
+                    position++;
+                    box1.style.left = position + 'px';
+                }
+            }
+
+            function down() {
+                if (position === 350) {
+                    clearInterval(interval);
+                    position = 0;
+                    next = setInterval(left, 10);
+                } else {
+                    position++;
+                    box1.style.top = position + 'px';
+                }
+            }
+
+            function left() {
+                if (position === 0) {
+                    clearInterval(interval);
+                    position = 350;
+                    next = setInterval(top, 10);
+                } else {
+                    position--;
+                    box1.style.left = position + 'px';
+                }
+            }
+
+            function top() {
+                if (position === 0) {
+                    clearInterval(interval);
+                    // position = 350;
+                    // next = setInterval(top, 10);
+                } else {
+                    position--;
+                    box1.style.top = position + 'px';
+                }
+            }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

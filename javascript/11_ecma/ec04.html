@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Destructing: 해체
+        
+        //두 array를 해체하여 하나의 오브젝트로 사용
+        let arr=['1', '2', '3'];
+        let [one, two, three] = arr;
+        console.log(three);
+
+        //Rest & Spread
+        
+        //arguments 사용하여 미확정 개수의 매개변수 처리하기
+        // function containAll(arr){
+        //     for(let i = 1; i< arguments.length; i++){
+        //         let num = arguments[i];
+        //         if(arr.indexOf(num)===-1){
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
+
+        let x = [2, 3, 4, 5, 7];
+        console.log(containAll(x, 2, 4, 5));
+        console.log(containAll(x, 7, 8));
+
+        function containAll(arr, ...nums){
+            for(let i = 1; i< nums.length; i++){
+                let num = nums[i];
+                if(arr.indexOf(num)===-1){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        //spread 기능을 apply 함수를 사용해서 구현
+        function myFunc(w, x, y, z){
+            console.log(w+x+y+z);
+        }
+        var args = [1,2,3];
+        myFunc.apply(null, args.concat(4));
+
+        //spread
+        const myFunc2 = (w, x, y, z) => console.log(w+x+y+z);
+        let args2 = [1, 2, 3];
+        myFunc2(...args2, 4)
+
+        // var date = new Date(2019, 06, 08);
+        console.log(date);
+        
+        var dataFields = [1970, 0, 1];
+        var date2 = new Date(...dataFields);
+        console.log(date2);
+    </script>
+</body>
+</html>

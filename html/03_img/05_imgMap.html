@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">image map</h1>
+    <img src="../../images/icox_book.jpg" alt="이미지맵" usemap="#book">
+<!-- 사각형은 두 쌍의 x,y좌표 원은 중앙 점의 좌표와 반지름 점 좌표 다각형은 각의 꼭짓점 만큼의 x,y좌표 -->
+    <map name="book">
+        <area shape="rect" coords="21, 49, 38, 162" href="https://www.instagram.com" alt="인스타" title="인스타로 이동">
+        <area shape="circle" coords="64, 48, 13" href="http://www.naver.com" title="네이버로 이동">
+        <area shape="poly" coords="41,167,192,135,167,238,78,210,44,219" href="http://www.google.com" title="구글로 이동">
+    </map>
+
+</body>
+</html>

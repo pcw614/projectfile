@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+        }
+
+        /* 완전히 같은 단어 */
+        [title="kiwi"] {
+            border: 10px solid black;
+        }
+
+        /* 단어 전체를 포함 */
+        [title~="fruit"] {
+            border: 10px solid darkslategrey;
+        }
+
+        ul li {
+            font-size: 20px;
+            padding: 5px;
+        }
+
+        /* 속성에 문자 포함  */
+        a[href*="w3"] {
+            color: darkcyan;
+            background-color: darkgray;
+        }
+
+        /* 문자열 시작값이 동일 */
+        a[href^=https] {
+            text-decoration: none;
+        }
+        a[href$=txt]{text-transform: uppercase;}
+        /* 속성 문자열 끝값이 동일 */
+        a[href=top]{background-color: darkgray;}
+    </style>
+</head>
+
+<body>
+    <h1>Attribute selectors: 속성[]의 특징 이용 </h1>
+
+    <img src="../../../images/1.jpg" alt="" title="fruit blueberry">
+    <img src="../../../images/2.jpg" alt="" title="kiwi">
+    <img src="../../../images/3.jpg" alt="" title="lemon fruit ">
+
+    <hr>
+    <ul>
+        <li><a href="http://www.daum.net">daum</a></li>
+        <li><a href="http://www.naver.com">naver</a></li>
+        <li><a href="https://www.google.com">google</a></li>
+        <li><a href="file://e:\ace\a.txt">a.txt</a></li>
+        <li><a href="http://www.w3schools.com">w3schools</a></li>
+        <li><a href="top">ttop</a></li>
+        <li><a href="top.com">top</a></li>
+
+
+    </ul>
+</body>
+
+</html>

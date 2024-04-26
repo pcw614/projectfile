@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>string fuction</h1>
+
+    <script>
+        //string 기본적으로 array다 - string에 index, length가 있다는 의미
+
+        let str = "time to go home";
+        let kr_str = "집 가고싶다";
+
+        console.log(str.length);
+        console.log(kr_str.length);
+        console.log(str[0]);
+        console.log(kr_str[0]);
+
+        //원본을 수정하지 않고 효과 적용한 문자열 반환
+        let a = str.toUpperCase();
+        console.log(a);
+        console.log("--------------");
+
+        console.log(str);
+        console.log("--------------");
+
+        let b = a.toLowerCase();
+        console.log(b);
+        console.log("--------------");
+
+        //substr(처음값, 길이) : 문자열 일부 잘라서 출력
+        var c = a.substr(2, 5);
+        console.log(c);
+        console.log("--------------");
+
+        let d = a.substring(2, 10);
+        console.log(d);
+        console.log("--------------");
+
+        //concat() - 문자열 합치기
+        let e = b.concat(" now")
+        console.log(e);
+        console.log("--------------");
+
+        //charAt() : 특정 index의 글자반환
+        let f = b.charAt(3);
+        console.log(f);
+        console.log("--------------");
+
+        //index 추출
+        let g = b.indexOf("me");
+        console.log(g);
+        console.log("--------------");
+        let h = b.lastIndexOf("o");
+        console.log(h);
+        console.log("--------------");
+
+        //
+        let i = b.replace("home", "to bed");
+        console.log(i);
+        console.log("--------------");
+
+        //let j = b.replace(/t, "why ") 첫번째 t만 교체
+        //정규식(regular expression) 이용해서 모두 바꾸기
+        //g: 패턴에 대한 전역 검색
+        //i: 대/소문자 구분 안함
+        //m: 여러 줄 검색
+
+        let j = b.replace(/t/gi, "why ")
+        console.log(j);
+        console.log("--------------");
+
+        var k = "대한민국은 3.1 운동을 통해 독립을 선언하고, 1919년 4월 11일 임시정부 수립하며 시작되었다. 1945년 광복 이후, 한반도의 북위 38도선 이남 지역 거주자들의 자유로운 선거(5.10 총선거)를 통하여 1948년 8월 15일에 공식적인 민주주의 국가로 출범하였다. 대한민국 헌법 전문에 따르면 대한국민은 3.1운동으로 건립된 대한민국 임시 정부의 법통을 계승한다. 대한민국은 1948년 12월 유엔 총회 결의 제195호를 통해 유엔으로부터 한반도 대다수 주민의 자유로운 의사에 따라 탄생한 한반도 유일한 정부로서 합법 정부로 승인 받았다. 이와 관련하여 대한민국 정부가 1948년에 유엔 감시 하에 선거를 실시한 한반도 이남에서만 유일한 합법 정부라는 주장도 있다.[5] 1991년 대한민국과 조선민주주의인민공화국은 동시에 UN에 가입하였다. 한편 국제법 상의 관례와 통설[6], 대한민국의 헌법재판소의 판례에 따르면 조선민주주의인민공화국이 UN에 가입하였다 하여 가맹국들 상호 간에도 당연히 그 국가성이 승인되는 것은 아니고 또 그러한 의무가 있는 것이 아니다. [7] 대한민국은 조선민주주의인민공화국의 국가성을 원칙적으로 부정한다.[8]"
+
+        let l = k.replace(/대한민국/gm, "미국")
+        console.log(l);
+        console.log("--------------");
+
+        //trim()
+        let m = "    민주주의    ";
+        console.log(m.trim());
+        let id = "  ace  ";
+        if(id.trim() == "ace"){
+            console.log("same")
+        }else{
+            console.log("not same")
+        }
+
+        if(k.indexOf(m.trim()) >= 0){
+            console.log(k.indexOf(m.trim()) + "에 있네")
+        }else{
+            console.log("존재하지않아")
+        }
+        console.log("--------------");
+
+        //split : 특정 구분자를 기준으로 문자열을 단어로 잘라 array로 반환
+        let w_arr = b.split(" ");
+        console.log(w_arr);
+
+        function wordCount(script, word){
+            let arr = script.split(" ")
+            let cnt = 0;
+            for(let w in arr){
+                // if(arr[w].trim() == word){
+                //     cnt++;
+                // }
+                if(arr[w].indexOf(word >= 0)){
+                    console.log(arr[w]);
+                    cnt++;
+                }
+            }
+            console.log(word + "포함 개수 : " + cnt);
+        }
+
+        wordCount(k, "대한민국");
+
+        // let cons = 
+    </script>
+</body>
+</html>

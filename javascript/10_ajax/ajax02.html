@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>ace in bluestream</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+<link rel="shortcut icon" href="/images/Ace_icon.png" type="image/x-icon">
+</head>
+<body>
+<button onclick="loadXMLDoc()">CD 모음집 가져오기</button>
+<hr>
+<table id="cd"></table>
+
+<script>
+    const loadXMLDoc = function(){
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                callback(this);
+            }
+        }
+        xhttp.open("get", "ajax.xml", true);
+        xhttp.send();
+    }
+
+    function callback(result){
+        console.log(result);
+        let xmlDoc = result.responseXML;
+        console.log(xmlDoc);
+        let table = "<tr><th>Artist</th><th>Title</th></tr>";
+        let cds = xmlDoc.getElementsByTagName("CD");
+        console.log(cds);
+        for(let i = 0; i < cds.length; i++){
+            table += "<tr><td>" 
+                + cds[i].getElementsByTagName("TITLE")[0].textContent + "</td><td>"
+                + cds[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue + "</td></tr>";
+        }
+        document.querySelector("#cd").innerHTML = table;
+
+    }
+</script>
+</body>
+</html>

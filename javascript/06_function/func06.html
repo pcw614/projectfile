@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" width="500" height="100" align="center">
+        <tr>
+            <td bgcolor="red" onmouseover="changeColor(0)"></td>
+            <td bgcolor="orange" onmouseover="changeColor(1)"></td>
+            <td bgcolor="yellow" onmouseover="changeColor(2)"></td>
+            <td bgcolor="green" onmouseover="changeColor(3)"></td>
+            <td bgcolor="blue" onmouseover="changeColor(4)"></td>
+            <td bgcolor="navy" onmouseover="changeColor(5)"></td>
+            <td bgcolor="violet" onmouseover="changeColor(6)"></td>
+        </tr>
+    </table>
+
+    <div style="width: 50%; padding: 20px; font-size: 100px; margin: auto; background-color: white; text-align: center;"><span id="color_name"></span></div>
+    <script>
+
+        const color = ["red", "orange", "yellow", "green", "blue", "navy", "violet"];
+
+        function changeColor(num){
+            document.body.style.backgroundColor = color[num];
+            let c_name = document.getElementById("color_name")
+            c_name.innerHTML = color[num];
+            c_name.style.color = color[num];
+        }
+    </script>
+</body>
+</html>

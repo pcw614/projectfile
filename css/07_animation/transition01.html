@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #2c3e50;
+            margin: 20px;
+        }
+        #a{
+            transition: 1s;
+        }
+        #a:hover{
+            width: 300px;
+        }
+        #b{
+            transition: width 2s, height 4s ease-in-out,
+            background-color 5s;
+        }
+        #b:hover{
+            width: 300px; height: 300px; background-color: #3498db;
+        }
+        #c{
+            transition: width 2s, height 4s ease-in-out,
+            background-color 5s, transform 2s;
+            transition-delay: 1s;
+        }
+        #c:hover{
+            width: 300px; height: 300px; background-color: #3498db; transform: rotate(720deg);
+        }
+    </style>
+</head>
+<body>
+    <h1>transition</h1>
+    <div id="a"></div>
+    <div id="b"></div>
+    <div id="c"></div>
+</body>
+</html>

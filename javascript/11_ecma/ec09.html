@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="smile.getA()">www</button>
+    <button onclick="smile.getB()">qqq</button>
+    <button onclick="smile.getC()">eee</button>
+
+    <script>
+        // function (){
+        //     console.log("wow")
+        // }
+
+        // window.onload = function (){
+        //     console.log("zz");
+        // }
+
+        (function (){
+            console.log("zz");
+        })();
+
+        ((aa) => console.log(aa))("what");
+
+        const smile = (function (){
+            return {
+                getA : function(){
+                    alert("www");
+                },
+                getB : function(){
+                    alert("qqq");
+                },
+                getC : function(){
+                    alert("eee");
+                }
+            } 
+        })();
+
+        //자동실행 함수를 이용해서 특정 변수에 대한 접근 제한 - 내부 메소드를 통해서만 변수값 제어 가능
+        const Counter = (function counterIIFE() {
+            // 현재 counter 값을 저장하기 위한 변수
+            let current = 0;
+
+            return {
+                getCurrentValue: function () {
+                    return current;
+                },
+
+                increaseValue: function () {
+                    current = current + 1;
+                    return current;
+                },
+
+                decreaseValue: function () {
+                    current = current - 1;
+                    return current;
+                },
+            };
+        })();
+
+        console.log(Counter.getCurrentValue()); // 0
+        console.log(Counter.increaseValue()); // 1
+        console.log(Counter.decreaseValue()); // 0
+    </script>
+
+    
+</body>
+</html>

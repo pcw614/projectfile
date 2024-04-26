@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>setTimeout &amp; clearTimeout</h1>
+
+    <p>setTimeout: 일정 시간 delay 후에 특정 함수 실행</p>
+    <p>clearTimeout: 정해진 시간이 지나기 전에 setTimeout 취소</p>
+
+    <div id="btn">
+        <button onclick="ignite()">폭파!</button>
+        <button onclick="cancel()">취소!</button>
+    </div>
+    <p id="effect">폭탄</p>
+
+    <script>
+        let effect = document.getElementById("effect");
+        let explosion;
+
+        const ignite = function ignite() {
+            explosion = setTimeout(function () {
+                let sum = 0;
+                for (let i = 0; i < 1000; i++) {
+                    sum += i;
+                }
+                alert("zz")
+            }, 3000);
+        }
+
+        function cancel() {
+            clearTimeout(explosion);
+        }
+    </script>
+
+    <button onclick="say()">인사</button>
+    <button onclick="cancel_greet()">미안해 인사 취소</button>
+    <p id="greet">인사말 자리</p>
+
+    <script>
+        var greet = document.getElementById("greet")
+        var sorry;
+
+        const say = function(){
+            greet.innerHTML = "안녕"
+            setTimeout(function(){
+                greet.innerHTML = "좋은 아침";
+            }, 1000);
+            sorry = setTimeout(function(){
+                greet.innerHTML = "좋은 점심"
+            }, 2000);
+            setTimeout(function(){
+                greet.innerHTML = "좋은 저녁"
+            }, 3000); 
+            let myWindow;
+            setTimeout(function(){
+                myWindow = window.open("crazy","", "width = 200, height = 400");
+                myWindow.document.write("<h1>so cool</h1>")
+            }, 4000);
+            setTimeout(function(){
+                myWindow.close();
+            }, 5000);
+        }
+
+        // let sum = 0;
+        // setTimeout(function(){
+        //     alert(sum);
+        // } , 2000);
+        // setTimeout(function(){
+        //     for(let i = 0; i < 10; i++){
+        //         sum += i;
+        //     }
+        // } , 1000);
+        
+        // const cancel_greet = function(){
+        //     clearInterval(sorry);
+        // }
+    </script>
+</body>
+
+</html>

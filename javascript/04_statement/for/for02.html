@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>for문으로 별찍기</h1>
+    <script>
+        // for(let i = 0; i < 5; i++){
+        //     document.write("*");
+        // }
+
+        // for(let i = 0; i < 5; i++){
+        //     console.log("i: " + i);
+        //     for(let j = 0; j < 5; j++){
+        //         console.log("j: "+ j);
+        //         document.write("*");
+        //     }
+        //     document.write("<br>");
+        // }
+        document.write("<hr>");
+
+        for(let i = 0; i < 5; i++){
+            console.log("i: " + i);
+            for(let j = 0; j < i + 1; j++){
+                console.log("j: "+ j);
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        document.write("<hr>");
+
+        for(let i = 0; i < 5; i++){
+            for(let j = 5; j > i ; j--){
+                document.write('&nbsp');
+            }
+            for(let k = 0; k < i + 1; k++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        document.write("<hr>");
+
+        
+    </script>
+</body>
+</html>

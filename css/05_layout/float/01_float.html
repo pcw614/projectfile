@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            text-align: center;
+            padding: 30px;
+            /* height: 100px;  */
+            width: 100px;
+            background-color: bisque;
+            margin: 5px;
+        }
+
+        .a {
+            float: left;
+            background-color: beige;
+        }
+
+        .b {
+            float: left;
+            background-color: skyblue;
+        }
+
+        .c {
+            float: left;
+            background-color: skyblue;
+        }
+
+        .d {
+            float: right;
+            background-color: skyblue;
+        }
+
+        .e {
+            clear: both;
+            ;
+            background-color: skyblue;
+        }
+
+        .clearfix {
+            width: 50%;
+        }
+
+        .img2 {
+            float: left;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>float &amp; clear</h1>
+    <div>float none</div>
+    <div class="a">float left</div>
+    <div class="b">float left</div>
+    <div class="c">float left</div>
+    <div class="d">float right</div>
+    <div class="e">clear both</div>
+    <hr>
+    <div class="clearfix">
+        <img class="img2" src="/images/0.jpg" alt="apple" width="170" height="170">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet...
+    </div>
+    <div class="f">float none</div>
+</body>
+
+</html>

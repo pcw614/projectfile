@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>태어난 날은 <span id="yoil"></span>요일입니다.</h2>
+
+    <script>
+        let year = prompt("year")
+        let month = prompt("month")
+        let date = prompt("date")
+
+
+        let today = new Date(year, month-1, date);
+        console.log("today >>", today);
+        let day = today.getDay();
+        console.log("day :" + day);
+        let yoil = document.getElementById("yoil");
+        let ans;
+
+        switch (day) {
+            case 1:
+                ans = "월";
+                break;
+            case 2:
+                ans = "화";
+                break;
+            case 3:
+                ans = "수";
+                break;
+            case 4:
+                ans = "목";
+                break;
+            case 5:
+                ans = "금";
+                break;
+            case 6:
+                ans = "토";
+                break;
+            case 7:
+                ans = "일";
+                break;
+        
+        }
+
+        yoil.innerHTML = ans;
+    </script>
+</body>
+</html>

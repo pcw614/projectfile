@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="frm">
+        <select name="color" id="" >
+            <option value="red">red</option>
+            <option value="orange">orange</option>
+            <option value="yellow">yellow</option>
+            <option value="green" selected>green</option>
+            <option value="blue">blueColor</option>
+            <option value="navy">navy</option>
+            <option value="purple">purple</option>
+        </select>
+        <button type="button" onclick="changeColor()">색깔 바꾸기</button>
+        
+    </form>
+    <div id="col_name"></div>
+
+    <script>
+        function changeColor(){
+            //선택된 option을 찾아서 value를 꺼내 화면 배경색을 바꾸고 div에 써준다
+
+            let col_name = document.getElementById("col_name")
+
+            // for(let i = 0; i < frm.color.length; i++){
+            //     if(frm.color[i].selected){
+            //         col_name.innerHTML = frm.color[i].value;
+            //         document.body.style.backgroundColor = frm.color[i].value;
+            //     }
+            // }
+
+            let select = frm.color[frm.color.selectedIndex].value;
+            col_name.innerHTML = select;
+            document.body.style.backgroundColor = select;
+            
+        //     const selectElement = document.getElementById('mySelect');
+
+        // selectElement.addEventListener('change', (event) => {
+        //     const selectedValue = event.target.value;
+
+        //     console.log(selectedValue); // 선택된 옵션의 값 출력
+        //     col_name.innerHTML = selectedValue;
+        //     document.body.style.backgroundColor = selectedValue;
+        // });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>아무말 설문</h3>
+
+    <form action="">
+        <fieldset>
+            <legend>아무질문</legend>
+            <ol>
+                <li><select name="성별" id="성별" required>
+                        <option value="남성">남성</option>
+                        <option value="여성">여성</option>
+                    </select>
+                    <label for="datetime-local">시간 및 날짜를 설정해주세요.</label>
+                    <input type="datetime-local" name="dt" required> <br>
+                </li>
+                <br>
+                <li>
+                    <label for="lunch">점심 메뉴가 무엇인가요?</label><input type="text" name="lunch" id="lunch" dequired>
+                </li>
+                <br>
+                <li> 먹고싶은 메뉴는?
+                    <input type="checkbox" name="checkbox" id="chicken" ><label for="chicken" value="chicken">치킨</label>
+                    <input type="checkbox" name="checkbox" id="pizza"><label for="pizza" value="pizza">피자</label>
+                    <input type="checkbox" name="checkbox" id="hamburger"><label for="hamburger"
+                        value="hamburger">햄버거</label>
+                    <input type="checkbox" name="checkbox" id="sushi"><label for="sushi" value="sushi">초밥</label>
+                </li>
+                <br>
+                <li> 오늘의 기분은?
+                    <input type="radio" name="today" id="happy" value="happy"><label for="happy">행복</label>
+                    <input type="radio" name="today" id="sad" value="sad"><label for="sad">우울함</label>
+                    <input type="radio" name="today" id="tired" value="tired"><label for="tired">피곤함</label>
+                    <input type="radio" name="today" id="angry" value="angry"><label for="angry">화가남</label>
+                </li>
+                <br>
+                <li>
+                    <label for="name">이름:</label><input type="text" name="name" id="name" required >
+                </li>
+                <br>
+                <li>
+                    <label for="date">생년월일:</label><input type="date" name="date" id="date" required>
+                </li>
+                <br>
+                <li> 내일이면 주말인데 소감 한 말씀
+                    <br>
+                    <textarea name="후기" id="훅;" cols="30" rows="10"></textarea required>
+                </li>
+                <input type="submit" value="제출">
+                <button type="button" onclick="alert('감사합니다')">제출2</button><br>
+            </ol>
+        </fieldset>
+    </form>
+</body>
+
+</html>

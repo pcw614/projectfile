@@ -1,0 +1,326 @@
+body {
+    /* margin: 0; */
+    font-family: "Gothic A1", sans-serif;
+}
+
+.event-page {
+    margin-top: 200px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 타이틀 */
+.event-title {
+    box-sizing: border-box;
+    /* position: sticky; */
+    top: 0;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.event-title h3 {
+    border-bottom: 3px solid black;
+    padding-bottom: 16px;
+}
+
+.font-b{
+    font-weight: 700;
+    color: black;
+}
+
+.font-m{
+    font-weight: 500;
+}
+
+.font-sm{
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+.font-s{
+    font-size: .75rem;
+    line-height: 1rem;
+}
+
+a {
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    gap: 1.25rem;
+    padding-left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* .event-con {
+    display: flex;
+    max-width: 1000px;
+    flex-wrap: wrap;
+    margin: 30px auto;
+} */
+
+.event-ctg {
+    display: flex;
+    margin-left: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 이벤트 메인 */
+
+.event-list {
+    gap: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-left: 0;
+    /* margin: 0; */
+}
+
+/* .event-main {
+    flex: 1 1 300px
+} */
+
+img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: .375rem;
+    object-fit: cover;
+}
+
+
+.event-img {
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.event-main{
+    margin-bottom: 22px;
+}
+
+@media (max-width:580px) {
+    .event-list {
+        display: block;
+        /* max-width: 100%;
+        /* flex-wrap: wrap; */
+        /* margin: auto; */
+    }
+}
+
+@media (min-width: 1280px) {
+    .event-title {line-height: 2.5rem;
+}
+}
+@media (min-width: 1024px)  {
+    .event-title{ font-size: 1.5rem;
+    line-height: 2rem;
+}
+}
+
+@media (min-width: 768px)  {
+    .event-title{ font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+}
+
+.event-text {
+    justify-content: space-between;
+    display: flex;
+
+}
+
+
+
+.event-text p {
+    padding-left: .25rem;
+    padding-right: .25rem;
+    margin-bottom: 1.25rem;
+    padding: 0;
+    display: flex;
+    color: #666666;
+}
+
+.text {
+    color: #0dcc5a;
+    display: flex;
+
+}
+
+/* fraud */
+
+.fraud{
+    max-width: 1000px;
+    box-sizing: content-box;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.fraud-title{
+    padding-top: .5rem;
+    padding-bottom: 2.25rem;
+}
+
+.font-b h2{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: .625rem;
+    margin: 0;
+}
+
+.top-p{
+    margin-bottom: 0;
+    color: #666666;
+    line-height: 22px;
+}
+
+.fraud1{
+    border-top: 1px solid #202020;
+}
+
+.fraud-a{
+    padding-bottom: 18px;
+}
+
+.font-b h3{
+    font-weight: 600;
+    line-height: 1.75em;
+    font-size: 1.125rem;
+}
+
+.font-b p{
+    margin-bottom: 0;
+    color: #666666;
+}
+
+.fraud-b{
+    width: 100%;
+}
+
+.fraud-b input{
+    width: 100%;
+    border-radius: .375rem;
+    border-width: 1px;
+    border-color: #666666;
+    background-color: white;
+}
+
+.form-f{
+    vertical-align: 'middle';
+    gap: .5rem;
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+.f-search{
+    
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.f-but{
+    
+    background-color: #212121;
+    padding: 1rem;
+    width: 100%;
+    color: white;
+    border: 0;
+    border-radius: .375rem;
+    /* margin-top: .5rem; */
+    text-align: center;
+    text-wrap: nowrap;
+    height: auto !important;
+
+}
+
+@media (min-width: 1024px){
+    .f-search {font-size: .875rem;
+    line-height: 1.25rem;
+}
+}
+@media (min-width: 768px){
+    .f-search {padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+}
+
+/* 조회버튼 미디어 커리 */
+@media (min-width: 1024px) {
+    .f-but {width: 7rem;
+}
+}
+@media (min-width: 768px){
+    .f-but {font-size: .875rem;
+    line-height: 1.25rem;
+}
+}
+@media (min-width: 768px){
+    .f-but {height: 3rem;
+    }
+}
+.fraud1{
+    margin-bottom: 30px;
+}
+
+.fraud2{
+    margin-bottom: 52px;
+}
+
+.ul-fraud{
+    display: flex;
+    width: 100%;
+    margin-bottom: .625rem;
+    box-sizing: border-box;
+    border: 0 solid #f9f9f9;
+}
+
+p:last-of-type{
+    margin-bottom: 0;
+}
+
+.li-fraud{
+    width: 100%;
+    margin-bottom: .625rem;
+    font-size: 14px;
+}
+
+.all-fraud{
+    padding-top: .875rem;
+    padding-bottom: .875rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(241, 244, 246);
+    display: flex;
+    justify-content: space-between;
+    border-radius: .5rem;
+    box-sizing: border-box;
+}
+
+.li-svg{
+    
+    align-items: center;
+    display: flex;
+}
+
+.li-em-p{
+    font-style: normal;
+    color: #0dcc5a;
+    font-weight: 700;
+}
+
+@media (min-width:480px) {
+    .li-em-p{
+        line-height: 2.5rem;
+        font-size: 32px;
+        margin-right: .25rem;
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>for</h1>
+    <h3>1~100까지의 합을 구하시오</h3>
+    <p id="ans1"></p>
+
+    <script>
+        //초기화 하지 않으면 사용불가
+        let sum = 0;
+        for(let i = 1; i <= 100; i++){
+            console.log(i)
+            sum += i;
+            console.log(sum)
+            console.log("---")
+        }
+        document.getElementById("ans1").innerHTML = sum;
+    </script>
+
+<h1>for</h1>
+<h3>1~100까지의 곱을 구하시오</h3>
+<p id="ans2"></p>
+
+<script>
+
+    //초기화 하지 않으면 사용불가
+    let sum1 = 1;
+     for(let j = 1; j <=100; j++){
+        console.log(j)
+        sum1 *= j;
+        console.log(sum1)
+     }
+
+     document.getElementById("ans2").innerHTML = sum1;
+</script>
+
+<h1>for</h1>
+<h3>1~100까지 짝수의 합을 구하시오</h3>
+<p id="ans3"></p>
+
+<script>
+    let sum2 = 0;
+    for(let j = 2; j <= 100; j+=2){
+        // if(j % 2 == 0)
+        console.log(j)
+            sum2 += j;
+            console.log(sum2)
+            console.log("---")
+    }
+    document.getElementById("ans3").innerHTML = sum2;
+</script>
+</body>
+</html>

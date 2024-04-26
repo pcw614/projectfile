@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>for in, for of</h1>
+
+    <script>
+        const a = ["kim", "lee", "park"];
+
+        for(let i = 0; i < a.length; i++){
+            document.write("<p>" + a[i] + "</p>");
+        }
+        document.write("<hr>");
+
+        //array의 요소 전체를 순서대로 뽑아줌 - index
+        for(let idx in a){
+            document.write("<p>" + idx + " : " + a[idx] + "</p>");
+        }
+        document.write("<hr>");
+        
+        //array의 요소 전체를 순서대로 뽑아줌 - index
+        //iterable: array, string, map, nodelists etc에만 사용 가능
+        for(let x of a){
+            document.write("<p>" + x + "</p>");
+        }
+        document.write("<hr>");
+
+        //object 출력
+        let myFriend = {fname : "cruze" , lname : "tom", age : 59};
+        //for in
+        for(let key in myFriend){
+            document.write("<p>" + key + " : " + myFriend[key] + "</p>");
+        }
+
+        //for of = object에 사용 불가
+        // for(let value of myFriend){
+        //     document.write("<p>" + value + "</p>");
+        // }
+
+        //문자열은 기본적으로 array다 - index
+        let lunch = "점심시간";
+        for(let char of lunch){
+            console.log(char);
+        }
+        console.log("------------------");
+        for(let i in lunch){
+            console.log(i + " : " + lunch[i]);
+        }
+    </script>
+</body>
+</html>

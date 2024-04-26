@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>구구단</h1>
+
+    <script>
+        for(let i = 1; i < 10; i++){
+            console.log("2 x" + i + " = " + 2*i)
+        }
+        //
+    </script>
+<h3>구구단 <span id="dan"></span>단</h3>
+    <div id="gugu"></div>
+
+    <script>
+        let dan = document.getElementById("dan");
+        let gugu = document.getElementById("gugu");
+        let num = parseInt (prompt("2 ~ 9"));
+
+        if(num >= 2 && num <= 9){
+        dan.innerHTML = num;
+        let result = "";
+        for(let i = 1; i < 10; i++){
+            result += "<p>" + num + " x " + i + " = " + num * i + "</p>";
+            console.log(result);
+        }
+
+        gugu.innerHTML = result;
+    }else{
+        alert("2~9사이의 숫자를 입력하세요")
+    }
+    </script>
+</body>
+</html>

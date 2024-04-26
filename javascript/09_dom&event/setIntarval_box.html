@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+            position: relative;
+        }
+
+        #box {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(255, 0, 0);
+        }
+
+        #box1 {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            top: 175px;
+            left: 175px;
+        }
+        
+
+        button {
+            display: inline-block;
+            padding: 10px;
+            width: 197px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="box"></div>
+        <div id="box1"></div>
+    </div>
+    <button onclick="move()" id="move">move</button>
+    <button onclick="stop()" id="stop">stop</button>
+
+    <script>
+        let position, time;
+        let box = document.getElementById("box");
+        let move_btn = document.getElementById("move");
+
+        function move() {
+            move_btn.disabled = true;
+            clearInterval(time);
+            position = 0;
+            time = setInterval(rightmove, 1);
+        }
+
+        function rightmove() {
+            if (position == 350) {
+                clearInterval(time);
+                position = 0;
+                time = setInterval(downmove, 1);
+            } else {
+                position++;
+                box.style.left = position + "px";
+            }
+        }
+
+        function downmove() {
+            if (position == 350) {
+                clearInterval(time);
+                //position =0;
+                time = setInterval(leftmove, 1);
+            } else {
+                position++;
+                box.style.top = position + "px";
+            }
+        }
+
+        function leftmove() {
+            if (position == 0) {
+                clearInterval(time);
+                position = 150;
+                time = setInterval(upmove, 1);
+            } else {
+                position--;
+                box.style.left = position + "px";
+            }
+        }
+
+        function upmove() {
+            if (position == 50) {
+                clearInterval(time);
+                position = 0;
+                time = setInterval(rightmove2, 1);
+            } else {
+                position--;
+                box.style.top = position + "px";
+            }
+        }
+
+        function rightmove2() {
+            if (position == 300) {
+                clearInterval(time);
+                position = 0;
+                time = setInterval(downmove2, 1);
+            } else {
+                position++;
+                box.style.left = position + "px";
+            }
+        }
+
+        function downmove2() {
+            if (position == 300) {
+                clearInterval(time);
+                // position =0;
+                time = setInterval(leftmove2, 1);
+            } else {
+                position++;
+                box.style.top = position + "px";
+            }
+        }
+
+        function leftmove2() {
+            if (position == 50) {
+                clearInterval(time);
+                position = 150;
+                time = setInterval(upmove2, 1);
+            } else {
+                position--;
+                box.style.left = position + "px";
+            }
+        }
+
+        function upmove2() {
+            if (position == 100) {
+                clearInterval(time);
+                position = 0;
+                time = setInterval(rightmove3, 1);
+            } else {
+                position--;
+                box.style.top = position + "px";
+            }
+        }
+
+        function rightmove3() {
+            if (position == 250) {
+                clearInterval(time);
+                position = 0;
+                time = setInterval(downmove3, 1);
+            } else {
+                position++;
+                box.style.left = position + "px";
+            }
+        }
+
+        function downmove3() {
+            if (position == 250) {
+                clearInterval(time);
+                // position =0;
+                time = setInterval(leftmove3, 1);
+            } else {
+                position++;
+                box.style.top = position + "px";
+            }
+        }
+
+        function leftmove3() {
+            if (position == 100) {
+                clearInterval(time);
+                position = 150;
+                time = setInterval(upmove3, 1);
+            } else {
+                position--;
+                box.style.left = position + "px";
+            }
+        }
+
+        function upmove3() {
+            if (position == 175) {
+                clearInterval(time);
+                position = 0;
+                // time = setInterval(rightmove4, 1);
+            } else {
+                position--;
+                box.style.top = position + "px";
+            }
+        }
+
+        function stop(){
+            clearInterval(time);
+            mv.disabled = false;
+        }
+
+    </script>
+</body>
+
+</html>

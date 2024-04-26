@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>ace in bluestream</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .ans{
+        color: firebrick;
+    }
+</style>
+</head>
+<body>
+<h1>오늘의 퀴즈</h1>
+<button onclick="loadDoc('ajax.json')">퀴즈 출제!!!</button>
+<div id="content"><img src="/images/Koala.jpg" alt="" width="300"></div>
+
+<script>
+    function loadDoc(url){
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                callback(this);
+            }
+        }
+        xhttp.open("get", url);
+        xhttp.send();
+    }
+
+    function callback(data){
+        console.log(data);
+        let text = data.responseText;
+        console.log(text);
+        //string인 json을 object로 만드는 함수
+        let jsonObject = JSON.parse(text);
+        console.log(jsonObject);
+        console.log(JSON.stringify(jsonObject));
+        let quiz = jsonObject.quiz;
+        let content = "";
+        for(let field in quiz){
+            content += `<h3>${field}</h3>`;
+            for(let q in quiz[field]){
+                for(key in quiz[field][q]){
+                    if(key == "answer"){
+                        content += `<p class="ans">${key} : ${quiz[field][q][key]}</p> `;
+                    }else{
+                    content += `<p>${key} : ${quiz[field][q][key]}</p> `;
+                    }
+                }
+                
+            }
+        }
+        document.querySelector("#content").innerHTML = content;
+    }
+</script>
+
+
+</body>
+</html>

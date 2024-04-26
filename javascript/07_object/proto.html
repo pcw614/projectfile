@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Person object를 찍어내기 위한 틀 - class
+        // function Person(name, age, gender){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.gender = gender;
+        // }
+
+        class Person {
+            constructor(name, age, gender) {
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+            }
+        }
+
+        let p1 =new Person("tom", 33, "m");
+        let p2 =new Person("jane", 44, "f");
+
+        const persons = [p1,p2]
+
+        // const persons = [
+        //     {"name" : "tom", "age" : 33, "gender" : "m"},
+        //     {"name" : "jane", "age" : 44, "gender" : "f"}
+        // ]
+        for(let i in persons){
+            console.log(persons[i])
+            for(let key in persons[i])
+            console.log(key + " : " + persons[i][key]);
+        }
+
+        // const arr = [3, 7, 9];
+        // console.log(arr[0])
+
+        p2.height = 193;
+        console.log(p2.height);
+
+        Persons.prototype.height = 173;
+        let p3 = new Person("sam", 31, "m");
+        console.log(p3);
+        console.log(p3.height);
+
+        Person.prototype.lunch = function(){
+            if(this.gender == "m"){
+                co
+            }
+        }
+    </script>
+</body>
+
+</html>

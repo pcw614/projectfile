@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Element</title>
+    <style>
+        #animatedElement {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 요소를 정확히 화면 중앙에 배치 */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="animatedElement"></div>
+
+    <script>
+        const animatedElement = document.getElementById("animatedElement");
+
+        let step = 0; // 이동 단계
+        let positionX = 50; // x축 시작 위치 (%)
+        let positionY = 50; // y축 시작 위치 (%)
+        const speed = 1; // 이동 속도 (%)
+        const intervalTime = 10; // 이동 간격 (밀리초)
+
+        // 페이지 로드 후 애니메이션 시작
+        window.onload = function() {
+            setInterval(moveElement, intervalTime);
+        };
+
+        function moveElement() {
+            // 각 단계별 이동 범위 설정
+            const maxX = 50 - step;
+            const maxY = 50 - step;
+            const minX = 50 + step;
+            const minY = 50 + step;
+
+            // 각 단계별 이동 처리
+            switch (step % 4) {
+                case 0: // 오른쪽으로 이동
+                    positionX += speed;
+                    animatedElement.style.left = positionX + '%';
+                    if (positionX >= maxX) {
+                        step++;
+                    }
+                    break;
+                case 1: // 아래쪽으로 이동
+                    positionY += speed;
+                    animatedElement.style.top = positionY + '%';
+                    if (positionY >= maxY) {
+                        step++;
+                    }
+                    break;
+                case 2: // 왼쪽으로 이동
+                    positionX -= speed;
+                    animatedElement.style.left = positionX + '%';
+                    if (positionX <= minX) {
+                        step++;
+                    }
+                    break;
+                case 3: // 위쪽으로 이동
+                    positionY -= speed;
+                    animatedElement.style.top = positionY + '%';
+                    if (positionY <= minY) {
+                        step++;
+                    }
+                    break;
+            }
+
+            // 이동이 모두 완료되면 애니메이션 종료
+            if (step === 8) {
+                clearInterval(animationInterval);
+            }
+        }
+    </script>
+</body>
+
+</html>

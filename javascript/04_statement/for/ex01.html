@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //0~ 10 사이의 숫자 차례대로 출력
+
+        for(let i = 0; i <= 10; i++){
+            console.log(i)
+        }
+
+        console.log("--------------")
+        //10 ~0 사이의 큰 수부터 차례대로 출력
+        for(let i = 10; i >= 0; i--){
+            console.log(i)
+        }
+        console.log("--------------")
+
+        //0 ~ 10 사이의 짝수만 작은 수 부터 출력하시오
+        for(let i = 0; i <= 10; i+=2){
+            console.log(i)
+        }
+        console.log("--------------")
+
+        //1 ~ 20 사이의 홀수의 합을 구하시오
+        let sum = 0;
+        for(let i = 1; i <= 20; i++){
+            if(i % 2 !== 0){
+                sum += i;
+            }
+           
+        }
+        console.log(sum)
+
+        console.log("--------------")
+
+        //1 ~ 20 미만의 정수 중에서 2 또는 3의 배수은 수의 총합을 구하시오
+
+        let sum1 = 0;
+        for(let i = 1; i <= 20; i++){
+            if(i % 2 == 0 || i % 3 == 0){
+                sum1 += i;
+            }
+        }
+        console.log(sum1)
+
+        //구구단 5단 출력
+
+        for(let i = 1; i <= 9; i++){
+            console.log("5 x " + i + " = " + 5*i)
+        }
+        
+        console.log("--------------")
+
+        //구구단 전체 출력
+
+        for(let i = 2; i <= 9; i++){
+            for(let j = 1; j <= 9; j++){
+                // console.log(i + " x " + j + " = " + j * i)
+                //template literal 방식 출력
+                console.log(`${i} x ${j} = ${j * i}`)
+            }
+            console.log("--------------")
+        }
+
+        //구구단 홀수 단만 출력
+
+        for(let i = 1; i <= 9; i++){
+            for(let j = 1; j <= 9; j++)
+            if(i % 2 == 1){
+                console.log(`${i} x ${j} = ${i * j}`)
+            }
+            console.log("--------------")
+        }
+
+        //두개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하시오
+        let cnt = 0;
+
+        for(let i = 1; i <= 5; i++){
+            for(let j = 1; j <= 5; j++){
+                if(i + j == 6){
+                    console.log( `[${i}, ${j}]`);
+                    break;
+                }
+                cnt++;
+            }
+            
+        }
+        console.log("--------------")
+        console.log(`총 횟수 : ${cnt++}`)
+        console.log("--------------")
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="/images/0.jpg" alt="" width="200">
+    <button type="button" id="stop">그만</button>
+    <button type="button" id="start">고</button>
+
+    <script>
+        //id가 start인 요소에 click 이벤트리스너를 붙여주고 이벤트 발생시 startIt함수를 실행
+        document.getElementById("start").addEventListener("click", startIt);
+        document.getElementById("stop").addEventListener("click", stopIt);
+
+
+        let start = 0;
+        let timer;
+        function carousel(){
+            //start를 5로 나눈 나머지 - 0 ~ 4
+            start %= 5;
+            //바꿔줄 이미지 경로를 image_data 변수에 저장
+            let image_data = "/images/" + (start + 1) + ".jpg";
+            //해당 이미지 요소의 src 속성값으로 image_data를 넣어줌 - 이미지 변겅
+            document.images[0].src = image_data;
+            start++;
+        }
+
+        function startIt(){
+            //인터벌 함수(1초에 한번씩 carousel 함수를 실행)를 실행하면서 timer 변수에 저장
+            timer = setInterval(carousel, 1000);
+            //start 버튼 사용 중지
+            document.getElementById("start").disabled = true;
+        }
+
+        function stopIt(){
+            //인터벌 함수 중단 - 메모리에서 함수 지워버림
+            clearInterval(timer);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        /* 스타일 시트 */
+        #display {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #asd {
+            border: 1px solid black;
+            padding: 50px;
+            width: 400px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="asd">
+        <!-- 스톱워치 디스플레이와 버튼을 포함하는 div -->
+        <div id="display">00:00.000</div> <!-- 시간 디스플레이 -->
+        <button onclick="startStopwatch()">Start</button> <!-- 시작 버튼 -->
+        <button onclick="stopStopwatch()">Stop</button> <!-- 정지 버튼 -->
+        <button onclick="recordTime()">Record</button> <!-- 기록 버튼 -->
+        <button onclick="resetStopwatch()">Reset</button> <!-- 초기화 버튼 -->
+    </div>
+    <p id="recordList"></p> <!-- 기록을 표시할 요소 -->
+
+    <script>
+        // 변수 선언
+        let start = 0; // 스톱워치 시작 시간
+        let time = 0; // 경과 시간
+        let timerInterval; // 타이머 setInterval의 참조
+        let records = []; // 기록을 저장할 배열
+        const recordList = document.getElementById("recordList"); // 기록을 표시할 요소의 참조
+
+        // 스톱워치 시작 함수
+        function startStopwatch() {
+            start = Date.now() - time;
+            timerInterval = setInterval(updateDisplay, 10);
+        }
+
+        // 스톱워치 정지 함수
+        function stopStopwatch() {
+            clearInterval(timerInterval);
+        }
+
+        // 현재 시간 기록 함수
+        function recordTime() {
+            records.push(formatTime(time));
+            displayRecords();
+        }
+
+        // 스톱워치 초기화 함수
+        function resetStopwatch() {
+            clearInterval(timerInterval);
+            time = 0;
+            records = [];
+            displayRecords();
+            updateDisplay();
+        }
+
+        // 디스플레이 업데이트 함수
+        function updateDisplay() {
+            time = Date.now() - start;
+            document.getElementById("display").innerText = formatTime(time);
+        }
+
+        // 시간 포맷 함수 (MM:SS.SSS)
+        function formatTime(milliseconds) {
+            let totalSeconds = Math.floor(milliseconds / 1000);
+            let minutes = Math.floor(totalSeconds / 60);
+            let seconds = totalSeconds % 60;
+            let millisecondsStr = (milliseconds % 1000).toString().padStart(3, '0');
+
+            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${millisecondsStr}`;
+        }
+
+        // 기록 표시 함수
+        function displayRecords() {
+            recordList.innerHTML = ""; // 기록 리스트 초기화
+            records.forEach((record, index) => {
+                const recordItem = document.createElement("div");
+                recordItem.textContent = `Record ${index + 1}: ${record}`;
+                recordList.appendChild(recordItem);
+            });
+        }
+    </script>
+</body>
+
+</html>

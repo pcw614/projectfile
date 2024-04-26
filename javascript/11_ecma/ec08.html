@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script src="math.js"></script> -->
+    <script type="module">
+        import * as math from "./math.js";
+        console.log(math.sum(3, 5))
+        console.log(math.pi)
+    </script>
+
+    <script>
+        // console.log(sum(3, 5,));
+        //webpack 등의 빌더 사용
+        // import * as math from "math";
+        // console.log(sum(3, 5,));
+
+        //함수적 처리 method
+        //filter, map, reduce, find...
+        let a = [4, 15, 7, 2, 9, 12, 3, 23];
+        a.filter(x => x > 5).map(x => x * 2).forEach(x => console.log(x));
+        // console.log(result);
+
+        let sum2 = a.reduce((x, y) => x + y);
+        console.log(sum2);
+
+    </script>
+</body>
+
+</html>
