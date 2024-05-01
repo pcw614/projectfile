@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>event on, off</h1>
+
+    <button>can you click me?</button>
+
+    <script>
+        $(function(){
+            $('button').on("mouseover click",  function(e){
+                alert(e.type)
+            })
+
+            const password = 1234;
+            let input = prompt("암호입력");
+            if(password === input){
+                $('button').off("click")
+            }
+        })
+        
+    </script>
+</body>
+</html>

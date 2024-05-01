@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>jQuery Common Events</h1>
+
+    <ul>Mouse Events
+        <li>click</li>
+        <li>dblclick</li>
+        <li>mouseenter</li>
+        <li>mouseleave</li>
+        <li>mouseover</li>
+        <li>wheel</li>
+        <li>hover</li>
+    </ul>
+
+    <script>
+        $(document).ready(function(){
+            // $('ul li:first-child').hover(function(){
+            // $('ul li:first-child')
+            // $('ul li:nth-child(1)')
+            // $('ul li').eq(0)
+            // $('ul li').first()
+            $('h1').siblings().first().children().eq(0)
+            .mouseenter(function(){
+                $(this).css("background", "gold")
+            })
+            .mouseleave(function(){
+                $(this).css("background", "white")
+            })
+        })
+    </script>
+
+<ul>Keyboard Events
+    <li>keydown</li>
+    <li>keyup</li>
+    <li>keypress</li>
+</ul>
+
+<p>당신의 별명은? <input type="text" id="nick"></p>
+    <div>당신의 별명은 <span id="n_name"></span>이군요~</div>
+
+<script>
+    $(function(){
+        // $('#nick').keyup(function(){
+        //     $('#n_name').text($(this).val());
+        // })
+
+        //enter키 입력시적용
+        // $('#nick').keypress(function(){
+        //     $('#n_name').text($(this).val());
+        // })
+
+        
+    })
+</script>
+
+<ul>Form Events
+    <li>submit</li>
+    <li>change</li>
+    <li>focus</li>
+    <li>blur</li>
+</ul>
+
+<ul>Document Events
+    <li>ready</li>
+    <li>resize</li>
+    <li>scroll</li>
+</ul>
+
+<script>
+    $(function(){
+        $('#n_name').click(function(){
+            alert($('#n_name').text());
+        })
+        $('ul li').last()
+            .mouseenter(function(){
+                $(this).css("background", "gold")
+            })
+            .mouseleave(function(){
+                $(this)
+            })
+    })
+</script>
+</body>
+</html>
