@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <button id = "btn">Data</button>
+    <div id="txt">Data here</div>
+
+    <script>
+        $(function () {
+            $('#btn').click(function () {
+                let url = "test.json";
+                //$.ajax({
+                $.get({
+                    // type: "get", //post, put, delete
+                    url: url,
+                    dataType: "json",
+                    success: function (result) {
+                        console.log(result);
+                        print(result);
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    },
+                    complete: function(){
+                        console.log("qqq")
+                    }
+                });
+            })
+            const print = function(result){
+                $('#txt').text(result);
+            }
+        })
+    </script>
+</body>
+</html>

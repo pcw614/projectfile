@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            margin-left: 20px;
+        }
+
+        li {
+            list-style: none;
+        }
+    </style>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>My ToDo List</h1>
+    <input type="text" placeholder="New Item">
+    <button id="add">할 일 추가</button>
+    <ol id="myList"></ol>
+
+    <script>
+        $(function(){
+            let input = $('input');
+            $('#add').on("click", function(){
+                let txt = $('input').val();
+                if(txt !== ""){
+                    let el = $('<li>').text(txt).append('<button class = "remove"> X </button');
+                    $('#myList').append(el);
+                    input.val("");
+                }
+            });
+//event delegation(위임)
+            $('#myList').on("click", '.remove', function(){
+                console.log("click")
+                $(this).parent().remove();
+            })
+        });
+    </script>
+</body>
+</html>

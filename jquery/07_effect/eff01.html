@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>hide, show, toggle</h1>
+
+    <button id="hide">사라져라</button>
+    <button id="show">나타나라</button>
+    <button id="toggle">오고 감이 운명이니...</button>
+
+    <p>어차피 사라질 운명... 언젠가 다시 만날 운명...</p>
+
+    <script>
+        $(function(){
+            $('#hide').on("click", function(){
+                $('p').hide(1000, 'linear');
+            })
+
+            $('#show').on("click", function(){
+                $('p').show(1000);
+            })
+
+            $('#toggle').on("click", function(){
+                $('p').toggle(1000);
+            })
+        })
+    </script>
+</body>
+</html>

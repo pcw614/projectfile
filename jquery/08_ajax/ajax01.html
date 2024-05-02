@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <h1>ajax jquery 문법</h1>
+
+    <button>데이터 가져오기</button>
+    <div>처음부터</div>
+
+    <script>
+        $(function () {
+            $('button').click(function () {
+                let url = "test.txt";
+                $.ajax({
+                    type: "get", //post, put, delete
+                    url: url,
+                    success: function (result) {
+                        console.log(result);
+                        print(result);
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    },
+                    complete: function(){
+                        console.log("qqq")
+                    }
+                });
+            })
+
+            const print = function(result){
+                $('div').html(result);
+            }
+
+        })
+    </script>
+</body>
+
+</html>
