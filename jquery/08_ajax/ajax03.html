@@ -32,8 +32,18 @@
                     }
                 });
             })
-            const print = function(result){
-                $('#txt').text(result);
+            const print = function (data) {
+                let x = `<h1>${data.name.replace("t", "T")}'s Pets</h1>`;
+
+                x += "<img src='" + data.photo + "' >";
+                //kind => <h2> / name => <p>
+                for (let i in data.pet) {
+                    x += `<h2> ${data.pet[i].kind}</h2>`;
+                    for (let j in data.pet[i].name) {
+                        x += `<p> ${data.pet[i].name[j]}</p>`;
+                    }
+                }
+                document.getElementById("txt").innerHTML = x;
             }
         })
     </script>

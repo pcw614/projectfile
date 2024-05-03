@@ -1,0 +1,14 @@
+<friends>
+    <friend>
+        <name>홍길동</name>
+        <language>java</language>
+    </friend>
+    <friend>
+        <name>성춘향</name>
+        <language>jsp</language>
+    </friend>
+    <friend>
+        <name>징기스칸</name>
+        <language>python</language>
+    </friend>
+</friends>

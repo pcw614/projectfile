@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ace in bluestream</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="/images/Ace_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="//cdn.datatables.net/2.0.5/css/dataTables.dataTables.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="//cdn.datatables.net/2.0.5/js/dataTables.min.js"></script>
+
+
+</head>
+
+<body>
+    <button>어제 영화 박스오피스 정보</button>
+    <h2 class="test"></h2>
+    <table id="movie">
+        <tr>
+            <th>등수</th>
+            <th>영화제목</th>
+            <th>관객수</th>
+        </tr>
+    </table>
+    <hr>
+    <!-- datatable -->
+    <table id="example" class="display" width="100%"></table>
+    <hr>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let key = "d80fa89e53773ff78846db28ee9494e1";
+        let today = new Date();
+        let year = today.getFullYear().toString();
+        let month = today.getMonth();
+        month = month + 1 < 9 ? "0" + (month + 1) : (month + 1);
+        let date = today.getDate();
+        date = date - 1 < 9 ? "0" + (date - 1) : (date - 1);
+        let targetDt = year + month + date;
+        console.log(targetDt);
+
+        let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=" + key + "&targetDt=" + targetDt;
+
+        $(function () {
+            $('button').click(function () {
+                $.ajax({
+                    type: "get", //post, put, delete
+                    url: url, //요청 경로
+                    dataType: "json",
+                    // contentType: "application/json",
+                    success: function (result) {
+                        console.log(result);
+                        print(result);
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    },
+                    complete: function () {
+                        //console.log("난 항상 즐거워 ㅋㅋㅋ");
+                    }
+                });
+            });
+        });
+
+        const dataSet = [];
+        const movieNms = [];
+        const audiCnts = [];
+
+        const print = function (result) {
+            $('.test').text(result.boxOfficeResult.boxofficeType);
+            const list = result.boxOfficeResult.dailyBoxOfficeList;
+            console.log(list);
+
+
+            $.each(list, function (idx, obj) {
+                let rnum = obj.rnum;
+                let movieNm = obj.movieNm;
+                let audiCnt = obj.audiCnt;
+                console.log(movieNm);
+                console.log(audiCnt);
+                let tr = $('<tr>');
+                tr.append($('<td>').text(rnum));
+                tr.append($('<td>').text(movieNm));
+                tr.append($('<td>').text(audiCnt));
+                $('#movie').append(tr);
+
+                //datatable 용 dataSet 만들기
+                let arr = new Array();
+                arr.push(rnum);
+                arr.push(movieNm);
+                arr.push(audiCnt);
+                dataSet.push(arr);
+
+                //chart 용 data array 만들기
+                movieNms.push(movieNm);
+                audiCnts.push(audiCnt);
+
+            });
+            console.log(dataSet);
+
+            new DataTable('#example', {
+                columns: [
+                    { title: '등수' },
+                    { title: '영화제목' },
+                    { title: '관객수' }
+                ],
+                data: dataSet
+            });
+
+            const ctx = document.getElementById('myChart');
+            const color = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: movieNms,
+                    datasets: [{
+                        label: '영화 박스오피스 현황',
+                        data: audiCnts,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            //max: 300000,
+                            type: 'logarithmic'
+                        }
+                    },
+                    backgroundColor: color
+                }
+            });
+        }
+
+    </script>
+
+
+</body>
+
+</html>
